@@ -10,7 +10,8 @@ participante_verif = 'inicio' #começando a variável com valor para conseguir f
 j = 0 #verifica while de prints dos brackets
 k = 0 #auxilia o while pra conferir se o usuário digitou uma confirmação válida (sim ou n)
 l = 0 #verifica o while se o usuário quer continuar inserindo novos brackets
-ll = 0 #auxilia o while pra conferir se o usuário digitou uma confirmação válida (sim ou n)
+ll = 0
+lll = 0 #auxilia o while pra conferir se o usuário digitou uma confirmação válida (sim ou n)
 
 opcao_cheat = 0
 indice_lista = 0
@@ -36,8 +37,22 @@ while(confirmacao=='nao' or confirmacao=='n' or confirmacao=='não'): #while-loo
             opcao_cheat = int(input())
             if (opcao_cheat == 1):
                 while(l==0):
-                    cheat_selecionado1 = input("Participante: ")
-                    cheat_selecionado2 = input("Adversário: ")
+                    #os whiles a seguir verificam se o participante foi inserido
+                    while(ll==0):
+                        cheat_selecionado1 = input("Participante: ")
+                        count_lista = lista_participantes.count(cheat_selecionado1)
+                        ll = 1
+                        if (count_lista == 0):
+                            print("Participante inválido.")
+                            ll = 0
+
+                    while(ll==1):
+                        cheat_selecionado2 = input("Adversário: ")
+                        count_lista = lista_participantes.count(cheat_selecionado1)
+                        ll = 0
+                        if (count_lista == 0):
+                            print("Participante inválido.")
+                            ll = 1
 
                     lista_participantes.remove(cheat_selecionado1)
                     lista_trapaca1.append(cheat_selecionado1)
@@ -49,15 +64,15 @@ while(confirmacao=='nao' or confirmacao=='n' or confirmacao=='não'): #while-loo
                     tamanho2 = len(cheat_selecionado2)
                     ll = 0
 
-                    while(ll==0):#manter usuário no loop do "continuar?"
+                    while(lll==0):#manter usuário no loop do "continuar?"
                         print("Continuar?")
                         confirmacao2 = input()
                         confirmacao2 = confirmacao2.lower()
                         if (confirmacao2 == 's' or confirmacao2 == 'sim'):
-                            ll = 1
+                            lll = 1
                         elif (confirmacao2=='nao' or confirmacao2=='n' or confirmacao2=='não'):
                             l = 1
-                            ll = 1
+                            lll = 1
                         else:
                             print("Resposta inválida.")
         else:

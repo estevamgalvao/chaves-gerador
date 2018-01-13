@@ -79,8 +79,6 @@ while(confirmacao=='nao' or confirmacao=='n' or confirmacao=='não'): #while-loo
             print("Resposta inválida.")
 
 
-
-
 #lista_participantes.remove('fim')
 lista_participantes = lista_participantes[:-1]
 num_participantes = len(lista_participantes)
@@ -111,27 +109,27 @@ if (num_participantes%2!=0):
 #print("INDICE_LISTA", indice_lista)
 #input()
 
+if(opcao_cheat==1):
+    for i in range(len(lista_trapaca1)):
+
+        tamanho1 = len(lista_trapaca1[i])
+        tamanho2 = len(lista_trapaca2[i])
+
+        print('*' * (tamanho1 + 8))
+        print('*   %s   *' % (lista_trapaca1[i]))
+        print('*' * (tamanho1 + 8))
+        # print('',end = '')
+
+        print("VERSUS")
+
+        print('*' * (tamanho2 + 8))
+        print('*   %s   *' % (lista_trapaca2[i]))
+        print('*' * (tamanho2 + 8))
+        print('')
+        print('')
 
 while(j < num_participantes/2):
     #print("PASSOU AQUI WHILE")
-    if(opcao_cheat==1):
-        for i in range(len(lista_trapaca1)):
-            
-            tamanho1 = len(lista_trapaca1[i])
-            tamanho2 = len(lista_trapaca2[i])
-
-            print('*' * (tamanho1 + 8))
-            print('*   %s   *' % (lista_trapaca1[i]))
-            print('*' * (tamanho1 + 8))
-            # print('',end = '')
-
-            print("VERSUS")
-
-            print('*' * (tamanho2 + 8))
-            print('*   %s   *' % (lista_trapaca2[i]))
-            print('*' * (tamanho2 + 8))
-            print('')
-            print('')
 
     selecionado1 = random.choice(lista_participantes)
     lista_participantes.remove(selecionado1)

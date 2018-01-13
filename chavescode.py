@@ -14,7 +14,6 @@ ll = 0
 lll = 0 #auxilia o while pra conferir se o usuário digitou uma confirmação válida (sim ou n)
 
 opcao_cheat = 0
-indice_lista = 0
 
 while(confirmacao=='nao' or confirmacao=='n' or confirmacao=='não'): #while-loop para manter o usuário enquanto n confirmar que quer parar de inscrever participantes
     while(participante_verif!='fim'):#while-loop para manter o programa pedindo nomes até 'fim'
@@ -75,14 +74,21 @@ while(confirmacao=='nao' or confirmacao=='n' or confirmacao=='não'): #while-loo
                             lll = 1
                         else:
                             print("Resposta inválida.")
+                            print("")
         else:
             print("Resposta inválida.")
+
+
 
 
 #lista_participantes.remove('fim')
 lista_participantes = lista_participantes[:-1]
 num_participantes = len(lista_participantes)
-print('')
+
+#print("LISTA PARTICIPANTES:", lista_participantes[0])
+#lista_participantes.sort()
+#print("LISTA PARTICIPANTES:", lista_participantes)
+#print('')
 
 if (num_participantes%2!=0):
     print("O número de participantes que você inseriu não faz chaves corretas!")
@@ -101,30 +107,31 @@ if (num_participantes%2!=0):
 #print("")
 #print("LISTA TRAPAÇA 2: ", lista_trapaca2)
 #tamanho1 = len(lista_trapaca1[0])
-#print(tamanho1)
+#print("TAMANHO1", tamanho1)
+#print("INDICE_LISTA", indice_lista)
 #input()
 
 
 while(j < num_participantes/2):
+    #print("PASSOU AQUI WHILE")
     if(opcao_cheat==1):
         for i in range(len(lista_trapaca1)):
-            tamanho1 = len(lista_trapaca1[indice_lista])
-            tamanho2 = len(lista_trapaca2[indice_lista])
+            
+            tamanho1 = len(lista_trapaca1[i])
+            tamanho2 = len(lista_trapaca2[i])
 
             print('*' * (tamanho1 + 8))
-            print('*   %s   *' % (lista_trapaca1[indice_lista]))
+            print('*   %s   *' % (lista_trapaca1[i]))
             print('*' * (tamanho1 + 8))
             # print('',end = '')
 
             print("VERSUS")
 
             print('*' * (tamanho2 + 8))
-            print('*   %s   *' % (lista_trapaca2[indice_lista]))
+            print('*   %s   *' % (lista_trapaca2[i]))
             print('*' * (tamanho2 + 8))
             print('')
             print('')
-            j+= 1
-            indice_lista+= 1
 
     selecionado1 = random.choice(lista_participantes)
     lista_participantes.remove(selecionado1)
